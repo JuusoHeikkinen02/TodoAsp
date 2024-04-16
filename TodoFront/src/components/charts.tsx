@@ -1,10 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Chart, Filler } from "chart.js/auto";
-import { Line } from "react-chartjs-2";
-
-import { GetAllTasks } from "./getAPI";
+import { Chart } from "chart.js/auto";
 import Task from "../models/TaskModel";
-import { format } from "date-fns";
 import Activity from "../models/ActivityModel";
 
 interface DoughnutChartProps {
@@ -19,7 +15,7 @@ interface AreaChartProps {
 interface DoughnutChartPropsAc {
   activities: Activity[];
 }
-
+//Chart for stats page
 export const DoughnutChart: React.FC<DoughnutChartProps> = ({ tasks }) => {
   const [chart, setChart] = useState<Chart<"doughnut"> | null>(null);
   useEffect(() => {
@@ -160,6 +156,8 @@ export const DoughnutChartAC: React.FC<DoughnutChartPropsAc> = ({
 
   return <canvas id="doughnut-chartAc" width="400" height="400"></canvas>;
 };
+
+//Chart for the home page
 export const AreaChart: React.FC<AreaChartProps> = ({ tasks, activities }) => {
   const chartRef = useRef<Chart<"line"> | null>(null);
 

@@ -16,6 +16,7 @@ export  function GetTaskStatus(start, end){
 
 }
 
+//Methods for marking the task and activity as done
 export async function MarkTaskDone(taskid){
     const DoneDate = new Date().toISOString().slice(0, 19).replace("T", " ");
     const Id = taskid;

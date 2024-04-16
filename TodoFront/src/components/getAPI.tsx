@@ -5,6 +5,7 @@ interface FetchTasksAndActivitiesProps {
   children: (data: { tasks: any[]; activities: any[] }) => React.ReactNode;
 }
 
+//Method for getting all tasks for usage
 const GetAllTasks: React.FC<FetchTasksAndActivitiesProps> = ({
   children,
 }): React.ReactElement => {

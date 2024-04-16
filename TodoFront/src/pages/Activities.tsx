@@ -245,7 +245,7 @@ const Activities = () => {
                             <h4>Activity Type</h4>
                             <p>{activity.ActivityTypeName}</p>
                             <Button
-                              className="success"
+                              variant="success"
                               onClick={() => MarkActivityDone(activity.Id)}
                             >
                               Done

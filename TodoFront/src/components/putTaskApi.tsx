@@ -7,9 +7,6 @@ import { GetTaskStatus } from "./TaskStatus";
 
 const AddTaskForm: React.FC = () => {
   const [tagCheckedIndex, setTagCheckedIndex] = useState<string | null>(null);
-  const [statusCheckedIndex, setStatusCheckedIndex] = useState<string | null>(
-    null
-  );
   const [activityCheckedIndex, setActivityCheckedIndex] = useState<
     string | null
   >(null);
@@ -74,19 +71,6 @@ const AddTaskForm: React.FC = () => {
         ...formData,
         TagName: tagindex,
         TagTheme: tagindex,
-      });
-    }
-  };
-
-  const handleStatusCheckboxChange = (statusindex: string) => {
-    if (statusCheckedIndex === statusindex) {
-      setStatusCheckedIndex("");
-    } else {
-      setStatusCheckedIndex(statusindex);
-      setFormData({
-        ...formData,
-        StatusName: statusindex,
-        StatusTheme: statusindex,
       });
     }
   };
@@ -178,23 +162,6 @@ const AddTaskForm: React.FC = () => {
             ))}
           </Col>
         </Form.Group>
-        {/* <Form.Group controlId="StatusName" className="row mb-3">
-          <Form.Label className="col-md-3 text-md-end">Status Name:</Form.Label>
-          <Col md={9}>
-            {["New", "In Progress", "Done"].map((statusindex) => (
-              <Form.Check
-                inline
-                key={statusindex}
-                type="checkbox"
-                name="StatusName"
-                label={statusindex}
-                checked={statusCheckedIndex === statusindex}
-                value={statusindex}
-                onChange={() => handleStatusCheckboxChange(statusindex)}
-              />
-            ))}
-          </Col>
-        </Form.Group> */}
         <Form.Group controlId="ActivityTypeName" className="row mb-3">
           <Form.Label className="col-md-3 text-md-end">
             Activity Type Name:

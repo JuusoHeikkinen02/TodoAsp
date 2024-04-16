@@ -4,6 +4,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Task from "../models/TaskModel";
 import Activity from "../models/ActivityModel";
+import { GetTaskStatus } from "./TaskStatus";
 interface EditTaskFormProps {
   taskId: number | string;
 }
@@ -15,9 +16,7 @@ export const GetTaskId = (taskId: number | string) => {
 
 export const EditTaskForm: React.FC<EditTaskFormProps> = ({ taskId }) => {
   const [tagCheckedIndex, setTagCheckedIndex] = useState<string | null>(null);
-  const [statusCheckedIndex, setStatusCheckedIndex] = useState<string | null>(
-    null
-  );
+
   const [activityCheckedIndex, setActivityCheckedIndex] = useState<
     string | null
   >(null);
@@ -38,6 +37,8 @@ export const EditTaskForm: React.FC<EditTaskFormProps> = ({ taskId }) => {
     const Id = GetTaskId(taskId);
     const formDataToSend = {
       ...formData,
+      StatusName: GetTaskStatus(formData.StartDate, formData.EndDate),
+      StatusTheme: GetTaskStatus(formData.StartDate, formData.EndDate),
       StartDate: formData.StartDate.toISOString()
         .slice(0, 19)
         .replace("T", " "),
@@ -54,7 +55,7 @@ export const EditTaskForm: React.FC<EditTaskFormProps> = ({ taskId }) => {
         body: JSON.stringify(formDataToSend),
       });
       const data = await response.json();
-      // window.location.reload();
+      window.location.reload();
     } catch (error) {
       console.error("Error adding activity:", error);
     }
@@ -70,6 +71,7 @@ export const EditTaskForm: React.FC<EditTaskFormProps> = ({ taskId }) => {
     });
   };
 
+  //Methods for handling changes in the document
   const handleTagCheckboxChange = (tagindex: string) => {
     if (tagCheckedIndex === tagindex) {
       setTagCheckedIndex("");
@@ -83,18 +85,7 @@ export const EditTaskForm: React.FC<EditTaskFormProps> = ({ taskId }) => {
     }
   };
 
-  const handleStatusCheckboxChange = (statusindex: string) => {
-    if (statusCheckedIndex === statusindex) {
-      setStatusCheckedIndex("");
-    } else {
-      setStatusCheckedIndex(statusindex);
-      setFormData({
-        ...formData,
-        StatusName: statusindex,
-        StatusTheme: statusindex,
-      });
-    }
-  };
+  //This method is unused in the current version
 
   const handleActivityCheckboxChange = (activityindex: string) => {
     if (activityCheckedIndex === activityindex) {
@@ -119,6 +110,7 @@ export const EditTaskForm: React.FC<EditTaskFormProps> = ({ taskId }) => {
     });
   };
 
+  //Returning the edit form
   return (
     <Container className="bg-light p-4">
       <Form onSubmit={handleSubmit}>
@@ -183,23 +175,6 @@ export const EditTaskForm: React.FC<EditTaskFormProps> = ({ taskId }) => {
             ))}
           </Col>
         </Form.Group>
-        <Form.Group controlId="StatusName" className="row mb-3">
-          <Form.Label className="col-md-3 text-md-end">Status Name:</Form.Label>
-          <Col md={9}>
-            {["New", "In Progress", "Done"].map((statusindex) => (
-              <Form.Check
-                inline
-                key={statusindex}
-                type="checkbox"
-                name="StatusName"
-                label={statusindex}
-                checked={statusCheckedIndex === statusindex}
-                value={statusindex}
-                onChange={() => handleStatusCheckboxChange(statusindex)}
-              />
-            ))}
-          </Col>
-        </Form.Group>
         <Form.Group controlId="ActivityTypeName" className="row mb-3">
           <Form.Label className="col-md-3 text-md-end">
             Activity Type Name:
@@ -227,11 +202,10 @@ export const EditTaskForm: React.FC<EditTaskFormProps> = ({ taskId }) => {
   );
 };
 
+//Returning the second edit form
 export const EditActivityForm: React.FC<EditTaskFormProps> = ({ taskId }) => {
   const [tagCheckedIndex, setTagCheckedIndex] = useState<string | null>(null);
-  const [statusCheckedIndex, setStatusCheckedIndex] = useState<string | null>(
-    null
-  );
+
   const [activityCheckedIndex, setActivityCheckedIndex] = useState<
     string | null
   >(null);
@@ -253,6 +227,8 @@ export const EditActivityForm: React.FC<EditTaskFormProps> = ({ taskId }) => {
     const Id = GetTaskId(taskId);
     const formDataToSend = {
       ...formData,
+      StatusName: GetTaskStatus(formData.StartDate, formData.EndDate),
+      StatusTheme: GetTaskStatus(formData.StartDate, formData.EndDate),
       StartDate: formData.StartDate.toISOString()
         .slice(0, 19)
         .replace("T", " "),
@@ -301,19 +277,6 @@ export const EditActivityForm: React.FC<EditTaskFormProps> = ({ taskId }) => {
     }
   };
 
-  const handleStatusCheckboxChange = (statusindex: string) => {
-    if (statusCheckedIndex === statusindex) {
-      setStatusCheckedIndex("");
-    } else {
-      setStatusCheckedIndex(statusindex);
-      setFormData({
-        ...formData,
-        StatusName: statusindex,
-        StatusTheme: statusindex,
-      });
-    }
-  };
-
   const handleActivityCheckboxChange = (activityindex: string) => {
     if (activityCheckedIndex === activityindex) {
       setActivityCheckedIndex("");
@@ -336,7 +299,7 @@ export const EditActivityForm: React.FC<EditTaskFormProps> = ({ taskId }) => {
       EndDate: date,
     });
   };
-
+  //Return the edit form
   return (
     <Container className="bg-light p-4">
       <Form onSubmit={handleSubmit}>
@@ -412,23 +375,6 @@ export const EditActivityForm: React.FC<EditTaskFormProps> = ({ taskId }) => {
             ))}
           </Col>
         </Form.Group>
-        {/* <Form.Group controlId="StatusName" className="row mb-3">
-          <Form.Label className="col-md-3 text-md-end">Status Name:</Form.Label>
-          <Col md={9}>
-            {["New", "In Progress", "Done"].map((statusindex) => (
-              <Form.Check
-                inline
-                key={statusindex}
-                type="checkbox"
-                name="StatusName"
-                label={statusindex}
-                checked={statusCheckedIndex === statusindex}
-                value={statusindex}
-                onChange={() => handleStatusCheckboxChange(statusindex)}
-              />
-            ))}
-          </Col>
-        </Form.Group> */}
         <Form.Group controlId="ActivityTypeName" className="row mb-3">
           <Form.Label className="col-md-3 text-md-end">
             Activity Type Name:

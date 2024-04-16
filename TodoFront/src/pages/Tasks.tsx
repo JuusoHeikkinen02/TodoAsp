@@ -239,7 +239,7 @@ const Tasks = () => {
                             <h4>Activity Type</h4>
                             <p>{task.ActivityTypeName}</p>
                             <Button
-                              className="success"
+                              variant="success"
                               onClick={() => MarkTaskDone(task.Id)}
                             >
                               Done
