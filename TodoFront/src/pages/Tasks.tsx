@@ -14,6 +14,7 @@ import {
   Col,
   Row,
 } from "react-bootstrap";
+import { Trash } from "react-bootstrap-icons";
 import "../App.css";
 
 const Tasks = () => {
@@ -221,7 +222,10 @@ const Tasks = () => {
                           key={TaskIndex}
                           eventKey={`${TaskIndex}`}
                         >
-                          <Accordion.Header>{task.Name}</Accordion.Header>
+                          <Accordion.Header className="justify-co">
+                            {task.Name}
+                            <Trash />
+                          </Accordion.Header>
                           <Accordion.Body
                             className="accordion-body"
                             style={{ textAlign: "left" }}

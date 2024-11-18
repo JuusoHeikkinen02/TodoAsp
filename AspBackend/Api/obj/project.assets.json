@@ -4591,11 +4591,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Juuso\\source\\repos\\TaskManager\\Backend\\Api\\Api\\Api.csproj",
+      "projectUniqueName": "C:\\Users\\Juuso\\Desktop\\TodoApp\\AspBackend\\Api\\Api.csproj",
       "projectName": "Api",
-      "projectPath": "C:\\Users\\Juuso\\source\\repos\\TaskManager\\Backend\\Api\\Api\\Api.csproj",
+      "projectPath": "C:\\Users\\Juuso\\Desktop\\TodoApp\\AspBackend\\Api\\Api.csproj",
       "packagesPath": "C:\\Users\\Juuso\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Juuso\\source\\repos\\TaskManager\\Backend\\Api\\Api\\obj\\",
+      "outputPath": "C:\\Users\\Juuso\\Desktop\\TodoApp\\AspBackend\\Api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Juuso\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HuHTPUBIKKFjtP2ny7bg4+c0vR5rcyLfcnwAZiV+QKw4bxP8/jaR3hA9PY7RfucXXap7/nr9hqWE2HUKNFiioQ==",
+  "dgSpecHash": "6Odf4hfwbdsbz7pNPLG87TY2imeGFHNG3YTT06zNABk9Q2x5gnLwyllDmVvAZc8ahc04JzJiFYi1OAPZ6ODtyw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Juuso\\source\\repos\\TaskManager\\Backend\\Api\\Api\\Api.csproj",
+  "projectFilePath": "C:\\Users\\Juuso\\Desktop\\TodoApp\\AspBackend\\Api\\Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Juuso\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Juuso\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
